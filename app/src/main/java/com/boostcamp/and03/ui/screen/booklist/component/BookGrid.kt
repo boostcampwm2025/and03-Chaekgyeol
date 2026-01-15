@@ -1,6 +1,5 @@
 package com.boostcamp.and03.ui.screen.booklist.component
 
-import android.util.Log
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.lazy.grid.GridCells
@@ -14,7 +13,7 @@ import com.boostcamp.and03.ui.theme.And03Spacing
 @Composable
 fun BookGrid(
     books: List<BookUiModel>,
-    onBookClick: (String) -> Unit
+    onBookClick: (BookUiModel) -> Unit
 ) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(3),
@@ -29,7 +28,7 @@ fun BookGrid(
                 title = book.title,
                 authors = book.authors,
                 thumbnail = book.thumbnail,
-                onClick = { onBookClick(book.id) }
+                onClick = { onBookClick(book) }
             )
         }
     }

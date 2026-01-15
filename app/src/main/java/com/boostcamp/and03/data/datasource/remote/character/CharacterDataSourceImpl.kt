@@ -3,7 +3,6 @@ package com.boostcamp.and03.data.datasource.remote.character
 import android.util.Log
 import com.boostcamp.and03.data.model.request.CharacterRequest
 import com.boostcamp.and03.data.model.response.CharacterResponse
-import com.google.firebase.firestore.FieldValue
 import com.google.firebase.firestore.FirebaseFirestore
 import jakarta.inject.Inject
 import kotlinx.coroutines.tasks.await
@@ -27,6 +26,7 @@ class CharacterDataSourceImpl @Inject constructor(
 
             snapshot.documents.mapNotNull { document ->
                 document.data?.let { data ->
+                    Log.d("CharacterDataSourceImpl", "data: $data")
                     CharacterResponse(
                         id = document.id,
                         role = data["role"] as? String ?: "",
@@ -37,7 +37,7 @@ class CharacterDataSourceImpl @Inject constructor(
             }
         } catch (e: Exception) {
             Log.e("CharacterDataSourceImpl", "Error: ${e.message}")
-            throw e
+            emptyList()
         }
     }
 

@@ -42,11 +42,11 @@ fun CharacterCard(
     role: String,
     iconColor: Color,
     description: String,
-    onEditClick: () -> Unit,
-    onDeleteClick: () -> Unit,
     modifier: Modifier = Modifier,
     selected: Boolean = false,
     onClick: () -> Unit = {},
+    onEditClick: () -> Unit = {},
+    onDeleteClick: () -> Unit = {},
 ) {
     val borderColor = if (selected) {
         And03Theme.colors.primary

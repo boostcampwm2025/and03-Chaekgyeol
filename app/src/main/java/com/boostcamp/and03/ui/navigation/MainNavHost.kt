@@ -10,6 +10,7 @@ import com.boostcamp.and03.ui.screen.bookdetail.bookDetailNavGraph
 import com.boostcamp.and03.ui.screen.booklist.booklistNavGraph
 import com.boostcamp.and03.ui.screen.booksearch.bookSearchNavGraph
 import com.boostcamp.and03.ui.screen.mypage.myPageNavGraph
+import com.boostcamp.and03.ui.screen.prototype.screen.SnackBarEvent
 
 @Composable
 fun MainNavHost(
@@ -25,8 +26,8 @@ fun MainNavHost(
         booklistNavGraph(
             modifier = modifier.padding(paddingValues),
             onShowSnackBar = onShowSnackBar,
-            navigateToBookDetail = { bookId ->
-                navigator.navigateToBookDetail(bookId)
+            navigateToBookDetail = { book ->
+                navigator.navigateToBookDetail(book)
             },
             navigateToBookSearch = {
                 navigator.navigateToBookSearch()
@@ -47,8 +48,7 @@ fun MainNavHost(
             navigateToCanvas = { memoId ->
                 navigator.navigateToCanvas(memoId)
             },
-            navigateToMemoEdit = {
-                navigator.navigateToMemoEdit()
+            navigateToMemoEdit = { navigator.navigateToMemoEdit()
             }
         )
     }

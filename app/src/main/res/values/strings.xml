@@ -5,8 +5,6 @@
     <string name="cd_more_options">더보기 옵션</string>
     <string name="page_indicator">p.%1$d</string>
     <string name="retry_btn_txt">다시 시도</string>
-    <string name="empty_message">아직 등록된 내용이 없어요</string>
-
 
     <!--  component  -->
     <string name="search_text_field_hint">검색어를 입력하세요.</string>

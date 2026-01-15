@@ -1,6 +1,5 @@
 package com.boostcamp.and03.ui.screen.booklist
 
-import android.util.Log
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -43,7 +42,7 @@ import kotlinx.collections.immutable.persistentListOf
 @Composable
 fun BooklistRoute(
     viewModel: BooklistViewModel = hiltViewModel(),
-    onBookClick: (String) -> Unit,
+    onBookClick: (BookUiModel) -> Unit,
     onAddBookClick: () -> Unit
 ) {
     val uiState by viewModel.uiState.collectAsStateWithLifecycle()
@@ -65,7 +64,7 @@ fun BooklistRoute(
 private fun BooklistScreen(
     uiState: BooklistUiState,
     onSearch: (String) -> Unit,
-    onBookClick: (String) -> Unit,
+    onBookClick: (BookUiModel) -> Unit,
     onAddBookClick: () -> Unit,
 ) {
     val searchState = remember { TextFieldState(uiState.searchQuery) }
@@ -144,9 +143,7 @@ private fun BooklistScreen(
                 else -> {
                     BookGrid(
                         books = uiState.filteredBooks,
-                        onBookClick = { bookId ->
-                            onBookClick(bookId)
-                        }
+                        onBookClick = onBookClick
                     )
                 }
             }

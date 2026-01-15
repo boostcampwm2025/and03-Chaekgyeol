@@ -37,7 +37,7 @@ class QuoteDataSourceImpl @Inject constructor(
             }
         } catch (e: Exception) {
             Log.e("QuoteDataSourceImpl", "Error: ${e.message}")
-            throw e
+            emptyList()
         }
     }
 

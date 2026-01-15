@@ -8,11 +8,7 @@ class BookSearchRemoteDataSourceImpl @Inject constructor(
     private val bookSearchApiService: BookSearchApiService
 ) : BookSearchRemoteDataSource {
 
-    override suspend fun loadBooks(
-        query: String,
-        display: Int,
-        start: Int
-    ): BookSearchResponse =
+    override suspend fun loadBooks(query: String, display: Int, start: Int): BookSearchResponse =
         bookSearchApiService.loadBooks(
             query = query,
             display = display,

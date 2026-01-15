@@ -31,12 +31,9 @@ import com.boostcamp.and03.ui.theme.And03Theme
 fun QuoteCard(
     quote: QuoteUiModel,
     onClick: () -> Unit,
-    onClickDelete: () -> Unit,
-    onClickEdit: () -> Unit,
-    modifier: Modifier = Modifier
 ) {
     Card(
-        modifier = modifier
+        modifier = Modifier
             .fillMaxWidth()
             .clickable(onClick = onClick),
         shape = RoundedCornerShape(And03Radius.RADIUS_M),
@@ -74,7 +71,6 @@ fun QuoteCard(
                             text = { Text(stringResource(R.string.more_vert_edit)) },
                             onClick = {
                                 closeMenu()
-                                onClickEdit()
                             }
                         )
 
@@ -82,7 +78,6 @@ fun QuoteCard(
                             text = { Text(stringResource(R.string.more_vert_delete)) },
                             onClick = {
                                 closeMenu()
-                                onClickDelete()
                             }
                         )
                     }
@@ -126,8 +121,6 @@ fun QuoteCardPreview() {
             page = 26,
             date = "2026.1.7",
         ),
-        onClick = {},
-        onClickDelete = {},
-        onClickEdit = {}
+        onClick = {}
     )
 }
